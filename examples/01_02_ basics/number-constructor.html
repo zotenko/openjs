@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Constructor</title>
+</head>
+<body>
+
+    <script>
+        // let num = Number('101');
+        // console.log(num); // 101
+        // console.log(typeof num) // number;
+    </script>
+
+
+    <script>
+        // console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+        // console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+
+        // console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+        // console.log(Number.MIN_VALUE); // 5e-324
+
+        // console.log(Number.NEGATIVE_INFINITY); // -Infinity
+        // console.log(Number.POSITIVE_INFINITY); // Infinity
+    </script>
+
+    <script>
+        // There is no direct way to get whether is value NaN or not 
+        // console.log('my' - 'string') // NaN
+        // console.log('my' - 'string' === NaN) // false
+
+        // console.log(Number.isNaN('my' - 'string')); // true
+        // console.log(Number.isNaN(101)); // flase
+    </script>
+
+    <script>
+        console.log((1 / 0) === Infinity); // true
+        console.log((1 / 0 * -1) === -Infinity); // true
+
+        console.log(Number.isFinite(('a' / 0) === Infinity)); // false
+        console.log(Number.isFinite((1 / 0 * -1) === -Infinity)); // false
+    </script>
+
+    <script>
+        let value = 12345.6789;
+        typeof value.toFixed(); // string
+        value.toFixed();       // '12346'; rounding, no fractional part
+        value.toFixed(1);      // '12345.7'; note rounding
+        value.toFixed(6);      // '12345.678900'; note added zeros
+
+        console.log(0.1 + 0.2 === 0.3); // false
+        console.log(parseFloat((0.1 + 0.2).toFixed(1)) === 0.3); // true
+    </script>
+
+    <script>
+        
+    </script>
+</body>
+</html>

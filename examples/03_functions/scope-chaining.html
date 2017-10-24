@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scope</title>
+</head>
+<body>
+
+<script>
+    let name = 'John'; // global variable
+    
+    function one() {
+        let foo = 'foo'; // local variable of one
+        
+        function two() {
+            let bar = 'bar', name = 'Lincoln';
+
+            function three() {
+                let baz = 'baz', name = 'Elvis', foo = 'hop', bar = 'hey';
+
+                console.log(name); // 'Elvis'
+                console.log(foo); // 'hop'
+                console.log(bar); // 'hey'
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

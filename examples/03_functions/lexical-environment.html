@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lexical Environment</title>
+</head>
+<body>
+
+<script>
+    const y = 5;
+
+    const x = () => {
+        return y;
+    };
+
+    const z = (func) => {
+        const y = 10;
+        return func();
+    };
+
+    const result = z(x);
+    console.log(result);
+</script>
+
+</body>
+</html>

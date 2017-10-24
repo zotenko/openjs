@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Singleton Counter</title>
+</head>
+<body>
+    <script>
+        const CounterModule = (function() {
+            let _counter;
+
+            return {
+                getCounter: function() {
+                    let seconds = 0;
+
+                    if (!_counter) {
+                        _counter = function() {
+                            seconds += 1;
+                            return seconds;
+                        }
+                    }
+
+                    return _counter;
+                }
+            }
+        })();
+
+        let counter1 = CounterModule.getCounter();
+        let counter2 = CounterModule.getCounter();
+
+        console.log(counter1 === counter2);
+
+        console.log(counter1(), counter1(), counter1());
+        console.log(counter2(), counter2(), counter2());
+    </script>
+</body>
+</html>

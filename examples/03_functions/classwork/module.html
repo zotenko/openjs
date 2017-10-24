@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Module</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script>
+        const UnderscoredJquery = ((Jquery, Underscore) => {
+            let message = 'Hello from';
+
+            let $ = {
+                sayHello: function() {
+                    console.log(Jquery('h1'));
+                }
+            }
+
+            let _ = {
+                sayHello: function() {
+                    Underscore.map([1, 2, 3], (item) => {
+                        console.log(message + ' ' + item);
+                    });
+                }
+            }
+
+            return {
+                $: $,
+                _: _
+            };
+        })($, _);
+
+        UnderscoredJquery.$.sayHello();
+        UnderscoredJquery._.sayHello();
+
+        // _.map([1, 2, 3], (item) => {
+        //     console.log(item);
+        // });
+
+        // console.log($('h1'));
+    </script>
+</body>
+</html>

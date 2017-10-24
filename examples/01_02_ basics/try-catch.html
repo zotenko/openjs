@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>try catch</title>
+</head>
+<body>
+
+    <script>
+        try {
+            let expresson = prompt('Please enter an expression.\n'
+                + 'But please do not make an error.'
+            );
+            let result = eval(expression);
+            console.log(result);
+        } catch(error) {
+            console.log('Catch');
+            console.log(error);
+        } finally {
+            console.log('Finally');
+        }
+    </script>
+
+</body>
+</html>

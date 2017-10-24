@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tree</title>
+</head>
+<body>
+    <ul id="menu"></ul>
+
+    <script>
+        const menuData = [
+            { title: 'one', children: [
+                { title: 'one-one' },
+                { title: 'one-two' },
+                { title: 'one-three' }
+            ] },
+            { title: 'two', children: [
+                { title: 'two-one' },
+                { title: 'two-two' },
+                { title: 'two-three', children: [ { title: 'two-three-one', children: [ { title: 'super-new' } ] }, { title: 'two-three-two' } ]}
+            ] },
+            { title: 'three', children: [
+                { title: 'three-one' },
+                { title: 'three-two' },
+                { title: 'three-three' }
+            ] },
+            { title: 'four', children: [
+                { title: 'four-one' },
+                { title: 'four-two' },
+                { title: 'four-three' }
+            ] },
+        ];
+
+        // console.log('menu', menu);
+
+        function renderMenu(target, items) {
+            for (let i = 0; i < items.length; i++) {
+                let dataItem = items[i];
+                let htmlLi = document.createElement('li');
+                htmlLi.innerText = dataItem.title;
+                target.appendChild(htmlLi);
+
+                if (dataItem.children) {
+                    let htmlUl = document.createElement('ul');
+                    htmlLi.appendChild(htmlUl);
+                    renderMenu(htmlUl, dataItem.children);
+                }
+            }
+        }
+
+        renderMenu(menu, menuData);
+    </script>
+</body>
+</html>

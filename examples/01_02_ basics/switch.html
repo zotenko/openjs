@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let year = prompt('What year is now?', 2010);
+        
+        switch(year) {
+            case '2010':
+                alert('You just taped enter!');
+            break;
+            case '2011':
+            case '2012':
+            case '2013':
+            case '2014':
+            case '2015':
+                alert('Are you insane?');
+            break;
+            case '2016':
+                alert('You are almost right!');
+            break;
+            case '2017':
+                alert('You are right');
+            break;
+            default:
+                alert('Default case. Year is ' + year);
+            break;
+        }
+    </script>
+</body>
+</html>

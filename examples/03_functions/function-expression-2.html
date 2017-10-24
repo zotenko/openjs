@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // sayMyName for ES5 is undefined.
+    // sayMyName for ES6 is not exist yet.
+    sayMyName(); // Error!
+
+    let userName = 'John';
+
+    // var sayMyName = function() {
+    const sayMyName = function() {
+        userName = 'Elvis';
+        const message = 'Hello, my name is ' + userName;
+        console.log(message);
+    }        
+</script>
+
+</body>
+</html>
+

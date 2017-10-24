@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Convertion to Boolean</title>
+</head>
+<body>
+    <script>
+
+        // !!'hello' === true
+        if ('show') { alert('This will be shown!'); }
+
+        // !!'' === false
+        if ('') { alert('This will not be shown!'); }
+
+        // space character
+        // !!' ' === true
+        if (' ') { alert('This will be shown!'); }
+
+        // !!1 === true
+        if (1) { alert('This will be shown!'); }
+
+
+
+        // !!-1 === true
+        if (-1) { alert('This will be shown!'); }
+
+        //!!0 === false
+        if (0) { alert('This will not be shown!'); }
+
+        // SZ empty array
+        // !![] === true
+        if ([]) { alert('This will be shown!'); }
+
+        // SZ empty object
+        // !!{} === true
+        if ({}) { alert('This will be shown!'); }
+
+
+    </script>
+</body>
+</html>

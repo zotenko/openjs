@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Constants</title>
+</head>
+<body>
+    <script>
+        const greetingMessage = 'Hello World';
+
+        // Error appears!
+        // Uncaught TypeError: Assignment to constant variable.
+        greetingMessage = 'Changed Hello World';
+
+        alert(greetingMessage); // Won't be shown
+    </script>
+</body>
+</html>

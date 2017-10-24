@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arguments</title>
+</head>
+<body>
+
+<script>
+    function printStudentsNames(student1, student2) {
+        for(let i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);
+        }
+
+        console.log('student1', student1);
+        console.log('student2', student2);
+    }
+
+    printStudentsNames('Andrew', 'Igor', 'Nick', 'John');
+</script>
+
+</body>
+</html>

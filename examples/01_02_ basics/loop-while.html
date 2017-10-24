@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>While</title>
+</head>
+<body>
+    <script>
+        let i = 1;
+        let input = prompt('Please enter a number', 1);
+
+        let factorial = 1;
+
+        while(i <= input) {
+            factorial *= i++;
+        }
+
+        alert('Factorial of ' + input + ' equal ' + factorial);
+    </script>
+</body>
+</html>

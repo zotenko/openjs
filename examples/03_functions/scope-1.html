@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scope</title>
+</head>
+<body>
+
+<script>
+    // Global scope
+    var es5Variable = 'ES5 variable';
+    let es6Variable = 'ES6 variable';
+    const es6Constant = 'ES6 constant';
+
+    function foo() {
+            // Every thing works fine
+            console.log('es5Variable', es5Variable);
+            console.log('es6Variable', es6Variable);
+            console.log('es6Constant', es6Constant);
+    }
+
+    foo();
+</script>
+
+
+</body>
+</html>

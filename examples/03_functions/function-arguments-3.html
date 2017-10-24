@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parameters</title>
+</head>
+<body>
+
+<script>
+    function sayName(name, age) {
+        // optional arguments in ES5
+        age = age || 20;
+
+        console.log(
+            'My name is ' + name
+            + ' , I am ' + age + ' years old'
+        );
+    }
+
+    sayName('John'); // 'My name is John I am 20 years old
+    sayName('Bill', 35); // 'My name is Bill I am 35 years old'
+    sayName('Phill', 50); // 'My name is Phill I am 50 years old'
+    sayName(); // 'My name is undefined I am 20 years old'
+</script>
+
+</body>
+</html>
