@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Context</title>
+</head>
+<body>
+<script>
+
+let student = {
+    name: 'John',
+    age: 20,
+    print() {
+        console.log('this', this);
+    }
+}
+
+student.print();
+
+const printStudent = student.print;
+
+printStudent();
+
+
+</script>
+</body>
+</html>
+

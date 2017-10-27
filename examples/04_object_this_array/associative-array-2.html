@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Associative Array</title>
+</head>
+<body>
+    <script>
+        let student = {
+            name: 'John',
+            age: 25,
+            sex: 'male'
+        }
+
+        delete student.age
+
+        if (!'age' in student) {
+            console.log('student does not has an age');
+        }
+    </script>
+</body>
+</html>

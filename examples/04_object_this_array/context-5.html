@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Context</title>
+</head>
+<body>
+    <script>
+
+
+function consoleProduct(func) {
+    console.log(func());
+}
+
+let product = {
+    price: 100,
+    shipping: 5,
+    getPrice(service1, service2, service3) {
+        let result = 0;
+
+        result += this.price;
+        result += this.shipping;
+        result += (service1 + service2 + service3);
+
+        return result;
+    }
+}
+
+const getProductPrice = product.getPrice.bind(product, 5, 10, 20);
+
+consoleProduct(getProductPrice);
+
+
+    </script>
+</body>
+</html>

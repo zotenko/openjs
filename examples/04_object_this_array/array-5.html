@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        let fruits = ['apple', 'prear', 'orange', 'plum', 'lemon'];
+
+        fruits.splice(fruits.indexOf('pear'), 1);
+
+        console.log(fruits);
+        // ['apple', 'orange', 'plum', 'lemon'];
+
+        fruits.splice(fruits.indexOf('plum'), 1);
+
+        console.log(fruits);
+        // ['apple', 'orange', 'lemon'];
+    </script>
+</body>
+</html>
+

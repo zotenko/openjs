@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dictionary</title>
+</head>
+<body>
+    <script>
+        const dictionary = {
+           hi: 'привет',
+           good: 'хороший',
+           morning: 'утро' 
+        }
+
+        const phraseDictionary = {
+            'good morning': 'доброе утро',
+            'how are you': 'мне все равно что происходит в твоей жизни, но вежливость вынуждает меня спросить как твои дела.'
+        }
+
+        while(true) {
+            let input = prompt();
+
+            if (input === '$end') {
+                break;
+            }
+
+            alert(phraseDictionary[input]);
+        }
+    </script>
+</body>
+</html>

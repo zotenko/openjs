@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Card</title>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+        crossorigin="anonymous"
+    >
+    <style>
+        body {
+            padding-top: 10px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .m-bottom-10 {
+            margin-bottom: 10px;
+        }
+
+        .m-bottom-20 {
+            margin-bottom: 20px;
+        }
+
+        .m-bottom-30 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row m-bottom-20">
+            <div class="col-md-3">
+                <div class="m-bottom-10"><img src="assets/placeholder.jpg" alt="avatar"></div>
+            </div>
+            <div class="col-md-9">
+                <div class="m-bottom-20">
+                    <h1 id="userFullName"></h1>
+                </div>
+                <div class="m-bottom-20">
+                    <h4>Contact Information</h4>
+                    <ul id="userContactInfo"></ul>
+                </div>
+                <div>
+                    <h4>About</h4>
+                    <div id="userAbout"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const user = {
+            firstName: 'Neil',
+            lastName: 'Armstrong',
+            about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dui eleifend ante consectetur varius.\
+                            Sed faucibus erat sit amet urna faucibus, nec scelerisque orci malesuada. Aliquam scelerisque ipsum augue,\
+                            sed pretium turpis tristique ac. In hac habitasse platea dictumst. Integer eu tortor at diam placerat finibus\
+                            sed id nisi. Mauris quam turpis, ultrices id sapien sed, condimentum cursus nunc. Etiam neque risus, imperdiet\
+                            ut est a, semper molestie ante. Sed mollis lobortis cursus. Pellentesque habitant morbi tristique senectus et netus\
+                            et malesuada fames ac turpis egestas.',
+            contacts: [
+                { title: 'Phone', value: '+38077-777-77-77' },
+                { title: 'Email', value: 'neil.armstrong@gmail.com' },
+                { title: 'Skype', value: 'neil.armstrong' }
+            ]
+        };
+
+        user.render = function() {
+            userFullName.innerText = `${this.firstName} ${this.lastName}`;
+            this.contacts.forEach(this.renderContacts.bind(this, '#userContactInfo'));
+            userAbout.innerText = this.about;
+        }
+
+        user.renderContacts = function(selector, item) {
+            // userContactInfo;
+
+            const htmlLi = document.createElement('li');
+            const title = document.createElement('span');
+            const value = document.createElement('span');
+
+            title.innerText = `${item.title}: `;
+            title.innerText = item.value;
+
+            htmlLi.appendChild(title);
+            htmlLi.appendChild(value);
+
+            document.querySelector(selector).appendChild(htmlLi);
+        }
+
+        window.addEventListener('load', () => {
+            user.render();
+        });
+    </script>
+</body>
+</html>

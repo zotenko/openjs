@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+        crossorigin="anonymous"
+    >
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h4>First Name</h4>
+            <p><input type="text" id="txtFirstName"></p>
+            <h4>Last Name</h4>
+            <p><input type="text" id="txtLastName"></p>
+            <h4>Image URL</h4>
+            <p><input type="text" id="txtImageUrl"></p>
+            <h4>About</h4>
+            <p><textarea cols="30" rows="10" id="txtAbout"></textarea></p>
+            <h4>Contacts</h4>
+            <p><button class="btn btn-link" id="btnAddContact">Add Contact</button></p>
+            <ul id="contactsList">
+                <li>
+                    <input placeholder="title" type="text">
+                    <input placeholder="value" type="text">
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <button id="btnSave" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function onBtnAddContactClick() {
+            let htmlLi = document.createElement('li');
+            let htmlInput = document.createElement('input');
+            htmlInput.type = 'text';
+
+            let title = htmlInput.cloneNode();
+            let value = htmlInput.cloneNode();
+
+            title.placeholder = 'title';
+            value.placeholder = 'value'
+
+            htmlLi.appendChild(title);
+            htmlLi.appendChild(value);
+
+            contactsList.appendChild(htmlLi);
+        }
+
+        function onBtnSaveClick() {
+            
+        }
+
+        window.addEventListener('load', () => {
+            btnAddContact.addEventListener('click', onBtnAddContactClick);
+            btnSave.addEventListener('click', onBtnSaveClick);
+        });
+    </script>
+</body>
+</html>
