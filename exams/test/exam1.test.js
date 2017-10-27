@@ -7,6 +7,7 @@ describe('Exam 1', () => {
         /* Correct input */
         expect(func(1, 1)).toEqual([]);
         expect(func(1, 300)).toEqual([[220, 284]]);
+        expect(func(284, 500)).toEqual([]);
 
         /* Not correct input */
         expect(func(-1, 300)).toBe(false);
