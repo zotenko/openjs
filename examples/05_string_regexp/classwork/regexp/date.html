@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date</title>
+</head>
+<body>
+    <h1>Date</h1>
+    <input id="txtInput" type="text">
+    <button id="btnSubmit">Submit</button>
+    <script>
+        const pattern = /^(\d{2}[\.-]){2}\d{2}(\d{2})?$/;
+        /**/
+
+        btnSubmit.addEventListener('click', () => {
+            console.log(pattern.test(txtInput.value));
+        });
+    </script>
+</body>
+</html>

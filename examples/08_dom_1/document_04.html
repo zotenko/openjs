@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document</title>
+</head>
+
+<body>
+    <div class="one two three" id="exmaple1">
+        <p>lorem1 ipsum</p>
+    </div>
+    <script>
+        {
+            const container = document.querySelector('#exmaple1');
+
+            container.className = 'remove all previous classes';
+            container.classList.add('new');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM</title>
+</head>
+<body>
+    <script>
+        {
+            const winHeight = 500;
+            const winWidth = 1000;
+
+            const browHeight = window.outerHeight;
+            const browWidth = window.innerWidth;
+
+            const strWindowFeatures = `width=${winWidth},height=${winHeight},menubar=yes`;
+            const windowObjectReference = window.open('', 'Popup', strWindowFeatures);
+
+            const winPosX = (browWidth / 2) - (winWidth / 2);
+            const winPosY = (browHeight / 2) - (winHeight / 2);
+
+            windowObjectReference.moveTo(winPosX, winPosY);
+            windowObjectReference.focus();
+        }
+
+    </script>
+</body>
+</html>

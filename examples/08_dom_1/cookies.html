@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function getCookiesList() {
+            const pairs = document.cookie.split('; ').map((pair) => {
+                let [key, value] = pair.split('=');
+                return { key, value };
+            });
+
+            return pairs;
+        }
+
+        function getCookieByName(name) {
+            return getCookiesList()[name];
+        }
+
+        function setCookie(name, value, flags) {
+            let {path='/', expires} = flags;
+
+            const dayInMiliseconds = 24*60*60*1000;
+            const expiresTime = expires ? expires * dayInMiliseconds : dayInMiliseconds;
+            const expiresDate = new Date(Date.now() + expiresTime);
+
+            document.cookie += `${name}=${value}; expires=${expiresDate.toUTCString()}; path=${path}`;
+        }
+
+        setCookie('test', 'value', { expires: 10 });
+
+    </script>
+</body>
+</html>

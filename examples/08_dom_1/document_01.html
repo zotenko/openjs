@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document</title>
+</head>
+
+<body>
+    <p id="html"></p>
+    <p id="text"></p>
+    <script>
+        {
+            const container = document.querySelector('#html');
+            container.innerHTML = '<h1>Hello World!</h1>';
+        }
+
+        {
+            const container = document.querySelector('#text');
+            container.innerText = '<h1>Hello World!</h1>';
+        }
+    </script>
+</body>
+
+</html>

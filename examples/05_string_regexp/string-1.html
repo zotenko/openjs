@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String</title>
+</head>
+<body>
+    <script>
+        let str = 'Hello World';
+
+        console.log(str.length); // 11
+
+        console.log(str[0]); // 'H'
+        console.log(str.charAt(0)); // 'H'
+        console.log(str.charCodeAt(0)); // 72
+
+        console.log(str.includes('rld')); // true
+        console.log(str.indexOf('rld')); // 8
+
+        console.log(str.indexOf('l')); // 2
+        console.log(str.lastIndexOf('l')); // 9
+
+        console.log(str.match(/rld/)); // ['rld', index: 8, input: 'Hello World']
+        console.log(str.match(/bye/)); // undefined
+
+        let password = 'qwerty';
+        console.log('*'.repeat(password.length));
+
+        console.log(str.replace(/l/g, '#')); // 'He##o Wor#d'
+        console.log(str.replace('l', '#')); // 'He#lo World'
+        console.log(str.replace('z', '#')); // undefined
+
+        console.log(str.search('l')); // 2
+        console.log(str.search('z')); // -1
+
+        console.log(str.slice(str.indexOf('World'))); // 'World'
+
+        console.log('1,2,3,4,5'.split(',')); // ["1", "2", "3", "4", "5"]
+
+        let worldIndex = str.indexOf('World');
+        console.log(str.substr(worldIndex, str.length - worldIndex)); // World
+        
+        console.log(str.toLocaleLowerCase()); // 'hello world'
+        console.log(str.toUpperCase()); // 'HELLO WORLD'
+
+        let spacedString = '   hello spaced world    ';
+        console.log(spacedString.trim()); // 'hello spaced world'
+    </script>
+</body>
+</html>

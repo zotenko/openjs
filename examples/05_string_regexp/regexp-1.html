@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegExp</title>
+</head>
+<body>
+    <script>
+        let str = 'Please open the book on page №7';
+
+        console.log(str.match(/\d/gi));
+        // ["7", index: 29, input: "Please open the book on page №7"]
+
+        console.log(str.replace(/\s/gi, '_'));
+        // 'Please_open_the_book_on_page_№7'
+
+        console.log(str.replace(/\W/gi, '-'));
+        // 'Please-open-the-book-on-page--7'
+
+        let str2 = 'Please replace \\w with #';
+        console.log(str2.replace(/\\w/, '#'));
+        // 'Please replace # with #'
+    </script>
+</body>
+</html>

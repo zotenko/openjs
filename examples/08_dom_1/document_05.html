@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document</title>
+</head>
+
+<body>
+    <style>
+        .row { width: 100px; }
+        .odd { background-color: red }
+        .even { background-color: green; }
+    </style>
+    <ul>
+    </ul>
+    <script>
+        {
+            const list = document.querySelector('ul');
+            const data = [1, 2, 3, 4, 5];
+
+            const row = document.createElement('li');
+            row.classList.add('row');
+
+            for(let i = 0; i < data.length; i++) {
+                const li = row.cloneNode();
+
+                li.innerHTML = data[i];
+                li.classList.add(i % 2 ? 'even' : 'odd');
+
+                list.appendChild(li);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document</title>
+</head>
+
+<body>
+    <div id="exmaple1">
+        <h1 id="toRemove1">toRemove1</h1>
+        <h1 id="toRemove2">toRemove2</h1>
+        <p>lorem ipsum</p>
+    </div>
+    <script>
+        {
+            const toRemove = document.querySelector('#toRemove1');
+            toRemove.remove();
+        }
+
+        {
+            const container = document.querySelector('#exmaple1');
+            const toRemove = container.querySelector('#toRemove2');
+            container.removeChild(toRemove);
+        }
+    </script>
+</body>
+
+</html>

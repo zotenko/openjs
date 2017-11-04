@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegExp</title>
+</head>
+<body>
+    <script>
+        let str = 'Unix time 01.01.1970';
+
+        console.log(str.match(/\d{2}\.\d{2}\.\d{4}/ig)); // ['01.01.1970']
+
+        let phone1 = '+380951112233';
+        let phone2 = '+38 (095) 111 22 33';
+
+        // name of a variable is not a joke, 
+        // this regexp is realy simple and dumb
+        let simplePhoneRegExp = /^\+?(\d+\s?((\(\d+\))|(\d{3}))\s?\d{3}\s?\d{2}\s?\d{2})$/;
+
+        console.log(simplePhoneRegExp.test(phone1)); // true
+        console.log(simplePhoneRegExp.test(phone2)); // true
+    </script>
+</body>
+</html>

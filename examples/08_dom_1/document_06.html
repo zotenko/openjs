@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document</title>
+</head>
+
+<body>
+    <div id="display"></div>
+    <button type="button" onclick="document.querySelector('#display').innerHTML = Date.now()">Click 1</button>
+    <button type="button" onclick="onClick2()">Click 2</button>
+    <button id="btn3" type="button">Click 3</button>
+    <button id="btn4" type="button">Click 4</button>
+
+    <script>
+        function onClick2() { alert('onClick2'); }
+        window.onload = () => {
+            // at this point dom is already loaded
+            // and we can manipulate with it
+
+            const display = document.querySelector('#display');
+            const btn3 = document.getElementById('btn3');
+            const btn4 = document.querySelector('#btn4');
+
+            btn3.onclick = () => { display.innerHTML = 'btn3 click'; }
+
+            btn4.addEventListener('click', () => { display.innerHTML = 'btn4 click'; });
+        }   
+    </script>
+</body>
+
+</html>

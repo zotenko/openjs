@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegExp</title>
+</head>
+<body>
+    <script>
+        let str = 'Please open the book on page №7';
+
+        console.log(str.replace(/[A-Za-z]/gi, '*'));
+        // '****** **** *** **** ** **** №7'
+
+        console.log(str.replace(/[a-j]/gi, '*'));
+        // 'Pl**s* op*n t** *ook on p*** №7'
+
+        console.log(str.replace(/[^a-j]/gi, '*'));
+        // '**ea*e***e***he*b********age***'
+
+        console.log(str.replace(/[^\w|\s]/gi, ''));
+        // 'Please open the book on page 7'
+
+        console.log(str.replace(/[a|b]/gi, '*'));
+        // 'Ple*se open the *ook on p*ge №7'
+    </script>
+</body>
+</html>
