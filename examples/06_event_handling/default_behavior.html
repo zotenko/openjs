@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form">
+        <p><input id="txt" type="text"></p>
+        <p><button id="btn">Click</button></p>
+    </form>
+    <script>
+        document.onclick = () => { console.log('document') };
+
+        form.onclick = () => { console.log('form') };
+
+        btn.onclick = (event) => {
+            console.log('This message will not be shown');
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

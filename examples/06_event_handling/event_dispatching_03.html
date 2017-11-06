@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Dispatching</title>
+</head>
+<body>
+    <script>
+        const e = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                clientX: 100,
+                clientY: 100
+            });
+
+            alert(e.clientX); // 100
+    </script>
+</body>
+</html>
+

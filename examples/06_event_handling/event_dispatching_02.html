@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Dispatching</title>
+</head>
+<body>
+    <div id="wrapper">
+        <button id="btn">click</button>
+        <button id="btnDispatch">dispatch</button>
+    </div>
+    <script>
+        wrapper.addEventListener('customEvent', () => {
+            console.log('wrapper');
+        });
+
+        btn.addEventListener('customEvent', (event) => {
+            console.log('btn');
+            event.preventDefault();
+            // event.stopPropagation();
+        });
+
+        btnDispatch.addEventListener('click', () => {
+            const clickEvent = new Event('customEvent',  { bubbles: true, cancelable: false });
+            console.log(btn.dispatchEvent(clickEvent)); // false
+        });
+    </script>
+</body>
+</html>
+
