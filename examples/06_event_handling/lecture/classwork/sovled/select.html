@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select</title>
+    <style>
+        #selectBox {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        #selectBox.displayed {
+            background-color: rgb(168, 168, 238);
+            border: 1px solid rgb(73, 73, 255);
+        }
+    </style>
+</head>
+<body>
+    <div id="selectBox"></div>
+    <script>
+        let timeoutId;
+        function debounce(func, time) {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+                timeoutId = undefined;
+            }
+
+            timeoutId = setTimeout(func, time);
+        }
+
+        const selection = {
+            element: selectBox,
+            isVisible: false,
+            posX: 0,
+            posY: 0
+        }
+
+        document.addEventListener('mousedown', (e) => {
+            const { clientX, clientY } = e;
+
+            if (!selection.isVisible) {
+                selectBox.classList.add('displayed');
+
+                selection.posX = clientX;
+                selection.posY = clientY;
+
+                console.log(`clientX ${clientX}, clientY ${clientY}`);
+
+                selection.element.style.left = `${clientX}px`;
+                selection.element.style.top = `${clientY}px`;
+
+                selection.isVisible = true;
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (selection.isVisible) {
+                const { clientX, clientY } = e;
+
+                debounce(() => {
+                    let width = clientX - selection.posX;
+                    let height = clientY - selection.posY;
+
+                    selection.element.style.width = `${width}px`;
+                    selection.element.style.height = `${height}px`;
+                }, 10);
+            }
+        });
+
+        document.addEventListener('mouseup', (e) => {
+            selection.isVisible = false;
+            selection.element.style.left = `0px`;
+            selection.element.style.top = `0px`;
+            selection.element.style.width = `0px`;
+            selection.element.style.height = `0px`;
+            selection.posX = 0;
+            selection.posY = 0;
+            selectBox.classList.remove('displayed');
+        });
+    </script>
+</body>
+</html>

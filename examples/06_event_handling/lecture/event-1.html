@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event 1</title>
+</head>
+
+<body>
+<div id="display"></div>
+<button onclick="display.innerText = Date.now()">Click 1</button>
+<button onclick="onClick()">Click 2</button>
+<button id="btn3">Click 3</button>
+<button id="btn4">Click 4</button>
+<script>
+    function onClick() { display.innerText = 'onClick'; }
+
+    window.onload = () => {
+        btn3.onclick = () => { display.innerText = 'btn3 clicked'; }
+        btn4.addEventListener('click', () => { display.innerText = 'btn4 clicked'; });
+    }
+</script>
+</body>
+
+</html>
