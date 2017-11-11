@@ -63,12 +63,12 @@ describe('Dev-Pro OpenJS - Exam 2', () => {
         });
 
         it('It should set isBusy to true on work start', () => {
-            project.findParticipants(() => {}, () => {});
+            project.findParticipant(() => {}, () => {});
             expect(project.isBusy).toBe(true);
         });
 
         it('It should set isBusy to false on work end', (done) => {   
-            project.findParticipants(() => {}, () => {
+            project.findParticipant(() => {}, () => {
                 expect(project.isBusy).toBe(false);
                 done();
             });
@@ -179,13 +179,13 @@ describe('Dev-Pro OpenJS - Exam 2', () => {
 
         it('It should set isBusy to true on work start', () => {
             const participant = { seniorityLevel: 'intermediate' };
-            project.addParticipant(participant, () => {});
+            project.removeParticipant(participant, () => {});
             expect(project.isBusy).toBe(true);
         });
 
         it('It should set isBusy to false on work end', (done) => {   
             const participant = { seniorityLevel: 'intermediate' };
-            project.addParticipant(participant, () => {
+            project.removeParticipant(participant, () => {
                 expect(project.isBusy).toBe(false);
                 done();
             });
