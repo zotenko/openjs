@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        function displayWithDelay(message, delay) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(message);
+                }, delay)
+            });
+        }
+
+        Promise.race([
+            displayWithDelay('Hello', 1 * 1000),
+            displayWithDelay('My Name is', 2 * 1000),
+            displayWithDelay('Bond', 2 * 1000),
+            displayWithDelay('Jamse Bond', 3 * 1000)
+        ])
+        .then((result) => {
+            console.log(result);
+        });
+
+
+    </script>
+</body>
+</html>

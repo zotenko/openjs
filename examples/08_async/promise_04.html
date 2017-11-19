@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+
+        function displayWithDelay(message, delay) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(message);
+                    resolve(message);
+                }, delay)
+            });
+        }
+
+        // Normal
+        displayWithDelay('Hello', 1 * 1000)
+            .then(() => {
+                return displayWithDelay('My name is', 2 * 1000);
+            })
+            .then(() => {
+                return displayWithDelay('Bond', 2 * 1000);
+            })
+            .then(() => {
+                return displayWithDelay('Jamse Bond', 1 * 1000);
+            });
+
+            
+
+        // Promise Hell
+        displayWithDelay('Hello', 1 * 1000)
+            .then(() => {
+                displayWithDelay('My name is', 2 * 1000)
+                    .then(() => {
+                        displayWithDelay('Bond', 2 * 1000)
+                            .then(() => {
+                                displayWithDelay('Jamse Bond', 1 * 1000);
+                            });
+                    });
+            });
+            
+    </script>
+</body>
+</html>
+
+

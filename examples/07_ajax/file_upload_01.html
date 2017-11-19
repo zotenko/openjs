@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="display">0</h1>
+    <input type="file" name="file" id="inpFile" />
+
+    <script>
+        const API_URL = 'http://localhost:4202/upload';
+
+        window.onload = () => {
+            inpFile.addEventListener('change', () => {
+                const file = inpFile.files[0];
+                console.log('file', file);
+
+                if (!file) {
+                    console.log('There is nothing for upload');
+                    return;
+                }
+
+                const fd = new FormData();
+                fd.append('file', file);
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', API_URL);
+
+                // hooks start
+                xhr.upload.addEventListener('error', (e) => {
+                    console.log('error', e);
+                });
+
+                xhr.upload.addEventListener('progress', (e) => {
+                    let currentPersent = Math.floor(e.loaded / (e.total / 100));
+                    display.innerText = currentPersent;
+                });
+
+                xhr.upload.addEventListener('loadstart', () => {
+                    console.log('loadstart');
+                });
+
+                xhr.upload.addEventListener('loadend', () => {
+                    console.log('loadend');
+                });
+
+                xhr.upload.addEventListener('load', () => {
+                        console.log('load');
+                });
+                // hooks end
+
+                xhr.send(fd);
+            });
+        }
+    </script>
+</body>
+</html>

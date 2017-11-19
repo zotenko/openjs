@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax</title>
+</head>
+<body>
+    <script>
+        function loadPosts(cb) {
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+
+            xhr.onload = function() {
+                if (Math.floor(this.status / 100) === 4) {
+                   cb('Not Found', null);
+                   return;
+                }
+
+                try {
+                    cb(null, JSON.parse(this.response));
+                } catch(error) {
+                    cb(error.message, null);
+                }
+            }
+
+            xhr.onerror = function() {
+                console.log('Request Error', xhr);
+            }
+
+            xhr.send();
+        }
+
+        loadPosts((error, data) => {
+                console.log('callback error', error);
+                console.log('callback data', data);
+            });
+    </script>
+</body>
+</html>

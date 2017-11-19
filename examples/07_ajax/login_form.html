@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax</title>
+</head>
+<body>
+    <form id="loginForm">
+        <p>
+            <label for="login">Login</label>
+            <input name="login" id="login" type="text">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input name="password" id="password" type="password">
+        </p>
+        <p><button type="submit">Submit</button></p>
+    </form>
+    <script>
+        const API_URL = 'http://localhost:3000/login';
+        function authorize() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('post', API_URL);
+
+            xhr.addEventListener('load', (response) => {
+                console.log('response', response);
+            });
+
+            const fd = new FormData(loginForm);
+
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('Authorization', 'Bearer abrakadabra');
+
+            console.log([loginForm]);
+
+            xhr.send(JSON.stringify({
+                login: login.value,
+                password: password.value
+            }));
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            console.log('submit');
+            e.preventDefault();
+            authorize();
+        });
+    </script>
+</body>
+</html>

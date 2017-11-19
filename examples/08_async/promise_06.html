@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        function displayWithDelay(message, delay) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(message);
+                    resolve(message);
+                }, delay)
+            });
+        }
+
+        function isGmail(email) {
+            if (/@gmail.com$/.test(email)) {
+                return Promise.resolve('Ok');
+            } else {
+                return Promise.reject('Not google mail');
+            }
+        }
+
+       isGmail('john.doe@gmail.com')
+        .then((message) => {
+            console.log(message);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+        
+    </script>
+</body>
+</html>

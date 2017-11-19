@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p><input type="file" id='file'></p>
+    <p><textarea id="output" cols="30" rows="10"></textarea></p>
+    <p><button id='btnApply'>Apply</button></p>
+    <img id="img" src="" alt="applied">
+    <script>
+        file.addEventListener('change', (e) => {
+            const files = e.target.files;
+            const file = files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.addEventListener('load', (readerEvent) => {
+                    console.log('readerEvent', readerEvent.target.result);
+                    const binaryString = readerEvent.target.result;
+                    output.value = btoa(binaryString);
+                });
+                reader.readAsBinaryString(file);
+            }
+        });
+
+        btnApply.addEventListener('click', () => {
+            img.src = `data:image/png;base64, ${output.value}`;
+        });
+    </script>
+</body>
+</html>

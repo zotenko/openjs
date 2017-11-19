@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        function fetchData(url) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+
+                xhr.open('GET', url);
+
+                xhr.addEventListener('load', () => {
+                    if (Math.floor(xhr.status / 100) === 4) {
+                        reject({ status: xhr.status, message: 'Not Found' });
+                        return;
+                    }
+
+                    resolve(JSON.parse(xhr.responseText));
+                });
+
+                xhr.addEventListener('error', reject);
+
+                xhr.send();
+            });
+        }
+
+        fetchData('https://jsonplaceholder.typicode.com/users1')
+            .then((users) => {
+                console.log(users);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+            
+    </script>
+</body>
+</html>
