@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select</title>
+</head>
+<body>
+
+    <form id="form">
+        <input name="username" type="text">
+        <input name="password" type="password">
+        <p><button type="button" id="btnFocus">Focus</button></p>
+        <p><button type="button" id="btnBlur">Blur</button></p>
+    </form>
+    <script>
+        form.addEventListener('focus', (event) => {
+            console.log('focus', event.target);
+        }, true);
+    </script>
+
+</body>
+</html>

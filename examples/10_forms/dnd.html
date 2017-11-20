@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DnD</title>
+    <style>
+        .wrapper {
+            border: 2px solid cadetblue;
+        }
+
+        ul {
+            float: left;
+            border: 2px solid brown;
+            list-style: none;
+            padding: 5px;
+        }
+
+        #list1 li {
+            border: 1px solid cyan;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul id="list1"></ul>
+        <ul id="list2"></ul>
+        <span class="clearfix"></span>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const apiUrl = 'http://localhost:3000/options';
+
+        function onDragStart(event) {
+            console.log('onDragStart', event);
+        }
+
+        function onDrop(event) {
+            console.log('onDrop', event);
+        }
+
+        function onDragOver(event) {
+            console.log('onDragOver');
+            event.preventDefault();
+        }
+
+        list1.addEventListener('drop', onDrop);
+        list1.addEventListener('dragover', onDragOver);
+        list2.addEventListener('drop', onDrop);
+        list2.addEventListener('dragover', onDragOver);
+
+        function render(list, data) {
+            const htmlLi = document.createElement('li');
+            htmlLi.draggable = true;
+
+            data.forEach((item) => {
+                const clonedHtmlLi = htmlLi.cloneNode();
+                clonedHtmlLi.addEventListener('dragstart', onDragStart);
+                clonedHtmlLi.innerText = item.title;
+                list.appendChild(clonedHtmlLi);
+            });
+        }
+
+        axios.get(apiUrl)
+            .then((response) => {
+                const { data } = response;
+
+                render(list1, data.filter(item => item.listId === 1));
+                render(list2, data.filter(item => item.listId === 2));
+            });
+    </script>
+</body>
+</html>

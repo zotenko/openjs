@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form name="named">
+        <h2>Input your query</h2>
+        <input type="text" name="searchBox1">
+        <input type="text" name="searchBox2">
+        <input type="text" name="searchBox3">
+        <input type="text" name="searchBox4">
+        <button>Submit</button>
+    </form>
+
+    <script>
+        const namedForm = document.forms.named;
+
+        namedForm.addEventListener('click', (e) => {
+            if (e.target.type === 'radio') {
+                let value = parseInt(namedForm.clickedTimes.value);
+                value += 1;
+                namedForm.clickedTimes.value = value;
+            }
+        });
+        namedForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
+        namedForm.addEventListener('change', () => {
+            console.log(namedForm.pets.selectedOptions);
+            [].forEach.call(namedForm.pets.selectedOptions, (item) => {
+                console.log(item.value);
+            })
+        });
+
+        namedForm.addEventListener('focus', (e) => {
+            if (e.target.type === 'text') {
+                console.log('form focused');
+                namedForm.style.border = '5px solid cyan';
+            }
+        }, true);
+
+        namedForm.addEventListener('blur', (e) => {
+            if (e.target.type === 'text') {
+                console.log('form focused');
+                namedForm.style.border = 'none';
+            } 
+        }, true);
+
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
+        });
+
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+        });
+
+        // console.log(document.forms);
+        // console.log(document.forms.named.elements);
+    </script>
+</body>
+</html>

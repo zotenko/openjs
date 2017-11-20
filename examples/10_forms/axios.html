@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Axios</title>
+</head>
+<body>
+    <h1>Axios</h1>
+    <input id='inputFile' type="file">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+
+        axios.interceptors.request.use((config) => {
+            config.headers['Authorization'] = 'bearer abrakadabra';
+
+            return config;
+        });
+
+        axios.interceptors.response.use((response) => {
+            // Do something with response data
+            console.log('res', response);
+            return response.data;
+        });
+
+        inputFile.addEventListener('change', (e) => {
+            const file = inputFile.files[0];
+
+            if (file) {
+                const fd = new FormData();
+                fd.append('file', file);
+
+                const onUploadProgress = (e) => {
+                    const { loaded, total } = e;
+
+                    console.log('onUploadProgress', Math.floor(loaded / (total / 100)));
+                }
+
+                const config = {
+                    headers: { 'content-type': 'multipart/form-data' },
+                    onUploadProgress: onUploadProgress
+                }
+
+                axios.post('http://127.0.0.1:4200/upload', fd, config)
+                    .then((value) => {
+                        console.log('done', value);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

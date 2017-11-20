@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dropzone {
+            height: 300px;
+            border: 5px solid cadetblue;
+        }
+
+        .dropzone.over {
+            border: 5px solid mediumseagreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery"></div>
+    <div id="dropzone" class="dropzone"></div>
+    <textarea id="base64output" cols="30" rows="10"></textarea>
+    <script>
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.target.classList.add('over');
+            console.log('over');
+        });
+
+        dropzone.addEventListener('dragleave', (e) => {
+            e.target.classList.remove('over');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.target.classList.remove('over');
+
+            console.log('e.dataTransfer', e.dataTransfer);
+            debugger
+            const file = e.dataTransfer.files[0];
+
+            if (!file) {
+                console.log('No file was dropped');
+            }
+
+            const reader = new FileReader();
+
+            reader.addEventListener('load', () => {
+                const base64Image = btoa(reader.result);
+
+                base64output.value = base64Image;
+
+                const htmlImg = document.createElement('img');
+
+                htmlImg.src = `data:image/png;base64,${base64Image}`;
+
+                gallery.appendChild(htmlImg);
+            });
+
+            reader.readAsBinaryString(file);
+        });
+    </script>
+</body>
+</html>

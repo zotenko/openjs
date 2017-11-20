@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <form name="quiz">
+        <p><input name="sex" value="male" type="radio"> Male</p>
+        <p><input name="sex" value="female" type="radio"> Female</p> 
+        <p><button type="submit">Send</button></p>
+    </form>
+    <script>
+        let quizForm = document.forms['quiz'];
+
+        quizForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            console.log(quizForm.elements['sex']); // array of elements
+            console.log(quizForm.elements['sex'].value); // selected value
+        });
+    </script>
+
+</body>
+</html>

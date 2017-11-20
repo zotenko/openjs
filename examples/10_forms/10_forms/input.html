@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <form name="exampleForm">
+        <label>Text - <input name="text" type="text"></label>
+        
+        <label><textarea name="textarea"></textarea></label>
+
+        <label>Radio 1 - <input name="radioGroup" value="1" type="radio"></label>
+        <label>Radio 2 - <input name="radioGroup" value="2" type="radio"></label>
+        <label>I agree - <input name="checkbox" type="checkbox"></label>
+        <input name="hidden" type="hidden" value="hidden value">
+        <p><button>Submit</button></p>
+    </form>
+
+
+    <script>
+        let exampleForm = document.forms.exampleForm;
+
+        exampleForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            console.log(exampleForm.text.value);
+            console.log(exampleForm.textarea.value);
+            console.log(exampleForm.hidden.value);
+
+            console.log('radio', exampleForm.radioGroup[0].checked);
+            console.log('checkbox', exampleForm.checkbox.checked);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <form name="login">
+        <p><input type="text" name="username"></p>
+        <p><input type="password" name="password"></p>
+        <p><button type="submit">Login</button></p>
+    </form>
+
+
+    <script>
+        let loginForm = document.forms['login'];
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            console.log(loginForm.elements);
+            console.log(loginForm.elements[0].value);
+            console.log(loginForm.elements[1].value);
+
+            let userName = loginForm.elements['username'];
+
+            console.log(userName.form);
+        });
+    </script>
+
+</body>
+</html>

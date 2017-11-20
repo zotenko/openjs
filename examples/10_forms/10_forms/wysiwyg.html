@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WYSIWYG</title>
+</head>
+<body>
+    <style>
+        #editor {
+            border: 2px solid brown;
+            width: 500px;
+        }
+
+        #panel {
+            padding: 2px;
+            border-bottom: 2px solid brown;
+        }
+
+        #workarea {
+            height: 150px;
+            width: 100%;
+        }
+    </style>
+
+    <form name="wysiwyg">
+        <div id="editor">
+            <div id="panel">
+                <button name="btnBold" type="button">bold</button>
+                <button name="btnClick" type="button">strike</button>
+            </div>
+            <div id="workarea" contenteditable="true"></div>
+        </div>
+        <input name="editorValue" type="hidden">
+
+        <p><button type="submit">Submit</button></p>
+    </form>
+
+    <script>
+        let wysiwyg = document.forms.wysiwyg;
+        wysiwyg.btnBold.addEventListener('click', () => {
+            let selection = window.getSelection();
+            let text = workarea.innerHTML;
+
+            let beforeSelectoin = text.slice(0, selection.anchorOffset);
+            let afterSelection = text.slice(selection.focusOffset);
+
+            console.log('before', beforeSelectoin);
+            console.log('after', afterSelection);
+
+            // text.replace()
+
+            // let selectionStart = selection.
+
+            let textContent = selection.textContent;
+        });
+    </script>
+</body>
+</html>
