@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Command</title>
+</head>
+<body>
+    <script>
+        (() => {
+            function add(a, b) { return a + b; }
+            function subtraction(a, b) { return a - b; }
+            function multiplication(a, b) { return a * b; }
+            function division(a, b) { return a / b; }
+
+            class Command {
+                constructor(execute, undo, value) {
+                    this.execute = execute;
+                    this.undo = undo;
+                    this.value = value;
+                }
+            }
+
+            class AddCommand {
+                constructor(value) {
+                    return new Command(add, subtraction, value);
+                }
+            }
+
+            class SubtractionCommand {
+                constructor(value) {
+                    return new Command(subtraction, add, value);
+                }
+            }
+
+            class MultiplicationCommand {
+                constructor(value) {
+                    return new Command(multiplication, division, value);
+                }
+            }
+
+            class DivisionCommand {
+                constructor(value) {
+                    return new Command(division, multiplication, value);
+                }
+            }
+
+            class Calculator {
+                constructor() {
+                    this._current = 0;
+                    this._commands = [];
+                }
+
+                execute(command) {
+                    this._current = command.execute(this._current, command.value);
+                    this._commands.push(command);
+                }
+
+                undo() {
+                    const command = this._commands.pop();
+                    this._current = command.undo(this._current, command.value);
+                }
+
+                getCurrentValue() {
+                    return this._current;
+                }
+            }
+
+            let instance = new Calculator();
+
+            console.log(instance.getCurrentValue());
+            instance.execute(new AddCommand(101));
+            console.log(instance.getCurrentValue());
+            instance.execute(new MultiplicationCommand(2));
+            console.log(instance.getCurrentValue());
+            instance.undo();
+            console.log(instance.getCurrentValue());
+            instance.undo();
+            console.log(instance.getCurrentValue());
+        })();
+    </script>
+</body>
+</html>
