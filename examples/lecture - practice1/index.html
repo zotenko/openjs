@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id='menu'></ul>
+    <script src="collection.js"></script>
+    <script>
+        const collection = new ObservableCollection([
+            new ObservableMenuItem('two', new ObservableCollection([
+                new ObservableMenuItem('two - one', new ObservableCollection([
+                    new ObservableMenuItem('one - three')
+                ])),
+                new ObservableMenuItem('two - two')
+            ])),
+            new ObservableMenuItem('one'),
+        ]);
+
+        const render = (target, coll) => {
+            coll.items.forEach(item => {
+                const htmlLi = document.createElement('li');
+                htmlLi.innerText = item.title;
+                target.appendChild(htmlLi);
+
+                if (item.children) {
+                    const htmlUl = document.createElement('ul');
+                    render(htmlUl, item.children);
+                    target.appendChild(htmlUl);
+                }
+            });
+        }
+
+        collection.subscribe(() => {
+            menu.innerHTML = '';
+            render(menu, collection);
+        });
+        render(menu, collection);
+    </script>
+</body>
+</html>
