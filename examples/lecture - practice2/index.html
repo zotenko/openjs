@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Auth</title>
+</head>
+<body>
+    <form name="login">
+        <p>
+            <label>Login</label>
+            <input name="login" type="text">
+        </p>
+        <p>
+            <label>Password</label>
+            <input type="text">
+        </p>
+        <p><button>Submit</button></p>
+    </form>
+    <script>
+        const loginForm = document.forms.login;
+        loginForm.onsubmit = (e) => {
+            e.preventDefault();
+            console.log('window.auth', window.auth);
+            window.auth
+                .getInstance()
+                .login({ login: loginForm.login });
+
+            // console.log(window.auth.getInstance());
+        }
+    </script>
+    <div id="target"></div>
+    <ul>
+        <li><a href="#" data-ref="one">One</a></li>
+        <li><a href="#" data-ref="two">Two</a></li>
+    </ul>
+    <script src="vse-vo-mne.js"></script>
+</body>
+</html>
